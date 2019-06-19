@@ -42,6 +42,12 @@ class ViewController: UIViewController {
         
         myUtterance = AVSpeechUtterance(string: txtField.text)
         myUtterance.rate = Float(utteranceRate)
+        
+        // optimize speech with params.
+        myUtterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+        myUtterance.postUtteranceDelay = 0.1
+        myUtterance.pitchMultiplier = 1.2
+        
         synth.speak(myUtterance)
         
     }
